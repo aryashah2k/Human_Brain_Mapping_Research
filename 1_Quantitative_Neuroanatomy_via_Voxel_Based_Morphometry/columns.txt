@@ -1,0 +1,375 @@
+Alertness
+Mini Mental Status Exam Total Score
+Sleep (Pittsburgh Sleep Questionnaire) Total Score
+Sleep (Pittsburgh Sleep Questionnaire) Component 1 Score
+Sleep (Pittsburgh Sleep Questionnaire) Component 2 Score
+Sleep (Pittsburgh Sleep Questionnaire) Component 3 Score
+Sleep (Pittsburgh Sleep Questionnaire) Component 4 Score
+Sleep (Pittsburgh Sleep Questionnaire) Component 5 Score
+Sleep (Pittsburgh Sleep Questionnaire) Component 6 Score
+Sleep (Pittsburgh Sleep Questionnaire) Component 7 Score
+1. Usual bed time (past month)
+2. Minutes to fall asleep (past month)
+3. Time get up in morning (past month)
+4. Hours of sleep per night (past month)
+5a. Sleep Trouble - Can't get to sleep within 30 minutes
+5b. Sleep Trouble - Wake up in middle of night or early morning
+5c. Sleep Trouble - Get up to use bathroom
+5d. Sleep Trouble - Can't breathe comfortably
+5e. Sleep Trouble - Cough or snore loudly
+5f. Sleep Trouble - Feel too cold
+5g. Sleep Trouble - Feel too hot
+5h. Sleep Trouble - Had bad dreams
+5i. Sleep Trouble - Have pain
+5j. Sleep Trouble - Other
+6. Describe overall sleep quality
+7. How often taken sleep medicine
+8. How often trouble staying awake
+9. How often trouble keeping up enthusiasm
+10. Have bed partner or roommate
+Cognition
+NIH Toolbox Picture Sequence Memory Test: Unadjusted Scale Score
+NIH Toolbox Picture Sequence Memory Test: Age-Adjusted Scale Score
+NIH Toolbox Dimensional Change Card Sort Test: Unadjusted Scale Score
+NIH Toolbox Dimensional Change Card Sort Test: Age-Adjusted Scale Score
+NIH Toolbox Flanker Inhibitory Control and Attention Test: Unadjusted Scale Score
+NIH Toolbox Flanker Inhibitory Control and Attention Test: Age-Adjusted Scale Score
+Penn Progressive Matrices: Number of Correct Responses (PMAT24_A_CR)
+Penn Progressive Matrices: Total Skipped Items (PMAT24_A_SI)
+Penn Progressive Matrices: Median Reaction Time for Correct Responses (PMAT24_A_RTCR)
+NIH Toolbox Oral Reading Recognition Test: Unadjusted Scale Score
+NIH Toolbox Oral Reading Recognition Test: Age-Adjusted Scale Score
+NIH Toolbox Picture Vocabulary Test: Unadjusted Scale Score
+NIH Toolbox Picture Vocabulary Test: Age-Adjusted Scale Score
+NIH Toolbox Pattern Comparison Processing Speed Test: Unadjusted Scale Score
+NIH Toolbox Pattern Comparison Processing Speed Test: Age-Adjusted Scale Score
+Delay Discounting: Subjective Value for $200 at 1 month (DDisc_SV_1mo_200)
+Delay Discounting: Subjective Value for $200 at 6 months (DDisc_SV_6mo_200)
+Delay Discounting: Subjective Value for $200 at 1 year (DDisc_SV_1yr_200)
+Delay Discounting: Subjective Value for $200 at 3 years (DDisc_SV_3yr_200)
+Delay Discounting: Subjective Value for $200 at 5 years (DDisc_SV_5yr_200)
+Delay Discounting: Subjective Value for $200 at 10 years (DDisc_SV_10yr_200)
+Delay Discounting: Subjective Value for $40K at 1 month (DDisc_SV_1mo_40K)
+Delay Discounting: Subjective Value for $40K at 6 months (DDisc_SV_6mo_40K)
+Delay Discounting: Subjective Value for $40K at 1 year (DDisc_SV_1yr_40K)
+Delay Discounting: Subjective Value for $40K at 3 years (DDisc_SV_3yr_40K)
+Delay Discounting: Subjective Value for $40K at 5 years (DDisc_SV_5yr_40K)
+Delay Discounting: Subjective Value for $40K at 10 years (DDisc_SV_10yr_40K)
+Delay Discounting: Area Under the Curve for Discounting of $200 (DDisc_AUC_200)
+Delay Discounting: Area Under the Curve for Discounting of $40,000 (DDisc_AUC_40K)
+Variable Short Penn Line Orientation: Total Number Correct (VSPLOT_TC)
+Variable Short Penn Line Orientation: Median Reaction Time Divided by Expected Number of Clicks for Correct (VSPLOT_CRTE)
+Variable Short Penn Line Orientation: Total Positions Off for All Trials (VSPLOT_OFF)
+Short Penn Continuous Performance Test: True Positives = Sum of CPN_TP and CPL_TP (SCPT_TP)
+Short Penn Continuous Performance Test: True Negatives = Sum of CPN_TN and CPL_TPN (SCPT_TN)
+Short Penn Continuous Performance Test: False Positives = Sum of CPN_FP and CPL_FP (SCPT_FP)
+Short Penn Continuous Performance Test: False Negatives = Sum of CPN_FN and CPL_FN (SCPT_FN)
+Short Penn Continuous Performance Test: Median Response Time for True Positive Responses (SCPT_TPRT)
+Short Penn Continuous Performance Test: Sensitivity = SCPT_TP/(SCPT_TP + SCPT_FN) (SCPT_SEN)
+Short Penn Continuous Performance Test: Specificity = SCPT_TN/(SCPT_TN + SCPT_FP) (SCPT_SPEC)
+Short Penn Continuous Performance Test: Longest Run of Non-Responses (SCPT_LRNR)
+Penn Word Memory Test: Total Number of Correct Responses (IWRD_TOT)
+Penn Word Memory Test: Median Reaction Time for Correct Responses (IWRD_RTC)
+NIH Toolbox List Sorting Working Memory Test: Unadjusted Scale Score
+NIH Toolbox List Sorting Working Memory Test: Age-Adjusted Scale Score
+NIH Toolbox Cognition Fluid Composite: Unadjusted Scale Score
+NIH Toolbox Cognition Fluid Composite: Age Adjusted Scale Score
+NIH Toolbox Cognition Early Childhood Composite: Unadjusted Scale Score
+NIH Toolbox Cognition Early Childhood Composite: Age Adjusted Scale Score
+NIH Toolbox Cognition Total Composite Score: Unadjusted Scale Score
+NIH Toolbox Cognition Total Composite Score: Age Adjusted Scale Score
+NIH Toolbox Cognition Crystallized Composite: Unadjusted Scale Score
+NIH Toolbox Cognition Crystallized Composite: Age Adjusted Scale Score
+Emotion
+Penn Emotion Recognition Test: Number of Correct Responses (ER40_CR)
+Penn Emotion Recognition Test: Correct Responses Median Response Time (ms) (ER40_CRT)
+Penn Emotion Recognition Test: Number of Correct Anger Identifications (ER40ANG)
+Penn Emotion Recognition Test: Number of Correct Fear Identifications (ER40FEAR)
+Penn Emotion Recognition Test: Number of Correct Happy Identifications (ER40HAP)
+Penn Emotion Recognition Test: Number of Correct Neutral Identifications (ER40NOE)
+Penn Emotion Recognition Test: Number of Correct Sad Identifications (ER40SAD)
+NIH Toolbox Anger-Affect Survey: Unadjusted Scale Score
+NIH Toolbox Anger-Hostility Survey: Unadjusted Scale Score
+NIH Toolbox Anger-Physical Aggression Survey: Unadjusted Scale Score
+NIH Toolbox Fear-Affect Survey: Unadjusted Scale Score
+NIH Toolbox Fear-Somatic Arousal Survey: Unadjusted Scale Score
+NIH Toolbox Sadness Survey: Unadjusted Scale Score
+NIH Toolbox General Life Satisfaction Survey: Unadjusted Scale Score
+NIH Toolbox Meaning and Purpose Survey: Unadjusted Scale Score
+NIH Toolbox Positive Affect Survey: Unadjusted Scale Score
+NIH Toolbox Friendship Survey: Unadjusted Scale Score
+NIH Toolbox Loneliness Survey: Unadjusted Scale Score
+NIH Toolbox Perceived Hostility Survey: Unadjusted Scale Score
+NIH Toolbox Perceived Rejection Survey: Unadjusted Scale Score
+NIH Toolbox Emotional Support Survey: Unadjusted Scale Score
+NIH Toolbox Instrumental Support Survey: Unadjusted Scale Score
+NIH Toolbox Perceived Stress Survey: Unadjusted Scale Score
+NIH Toolbox Self-Efficacy Survey: Unadjusted Scale Score
+FreeSurfer
+Estimated intra-cranial volume
+Brain segmentation volume
+Brain segmentation volume w/o ventricles
+Brain segmentation volume w/o ventricles from surface
+Left hemisphere cortical gray matter volume
+Right hemisphere cortical gray matter volume
+Total cortical gray matter volume
+Total subcortical gray matter volume
+Total gray matter volume
+Supratentorial volume
+Supratentorial w/o ventricals volume
+Supratentorial w/o ventricals voxel count
+Left hemisphere cortical white matter volume
+Right hemisphere cortical white matter volume
+Total cortical white matter volume
+Mask volume
+Ratio of BrainSegVol to eTIV
+Ratio of MaskVol to eTIV
+Number of defect holes in LH prior to fixing
+Number of defect holes in RH prior to fixing
+Total number of defect holes in surfaces prior to fixing
+Left-Lateral-Ventricle Volume
+Left-Inf-Lat-Vent Volume
+Left-Cerebellum-White-Matter Volume
+Left-Cerebellum-Cortex Volume
+Left-Thalamus-Proper Volume
+Left-Caudate Volume
+Left-Putamen Volume
+Left-Pallidum Volume
+3rd-Ventricle Volume
+4th-Ventricle Volume
+Brain-Stem Volume
+Left-Hippocampus Volume
+Left-Amygdala Volume
+CSF Volume
+Left-Accumbens-area Volume
+Left-VentralDC Volume
+Left-vessel Volume
+Left-choroid-plexus Volume
+Right-Lateral-Ventricle Volume
+Right-Inf-Lat-Vent Volume
+Right-Cerebellum-White-Matter Volume
+Right-Cerebellum-Cortex Volume
+Right-Thalamus-Proper Volume
+Right-Caudate Volume
+Right-Putamen Volume
+Right-Pallidum Volume
+Right-Hippocampus Volume
+Right-Amygdala Volume
+Right-Accumbens-area Volume
+Right-VentralDC Volume
+Right-vessel Volume
+Right-choroid-plexus Volume
+5th-Ventricle Volume
+WM-hypointensities Volume
+Left-WM-hypointensities Volume
+Right-WM-hypointensities Volume
+Left-non-WM-hypointensities Volume
+Right-non-WM-hypointensities Volume
+Optic-Chiasm Volume
+CC_Posterior Volume
+CC_Mid_Posterior Volume
+CC_Central Volume
+CC_Mid_Anterior Volume
+CC_Anterior Volume
+Left bankssts Average Thickness
+Left caudalanteriorcingulate Average Thickness
+Left caudalmiddlefrontal Average Thickness
+Left cuneus Average Thickness
+Left entorhinal Average Thickness
+Left fusiform Average Thickness
+Left inferiorparietal Average Thickness
+Left inferiortemporal Average Thickness
+Left isthmuscingulate Average Thickness
+Left lateraloccipital Average Thickness
+Left lateralorbitofrontal Average Thickness
+Left lingual Average Thickness
+Left medialorbitofrontal Average Thickness
+Left middletemporal Average Thickness
+Left parahippocampal Average Thickness
+Left paracentral Average Thickness
+Left parsopercularis Average Thickness
+Left parsorbitalis Average Thickness
+Left parstriangularis Average Thickness
+Left pericalcarine Average Thickness
+Left postcentral Average Thickness
+Left posteriorcingulate Average Thickness
+Left precentral Average Thickness
+Left precuneus Average Thickness
+Left rostralanteriorcingulate Average Thickness
+Left rostralmiddlefrontal Average Thickness
+Left superiorfrontal Average Thickness
+Left superiorparietal Average Thickness
+Left superiortemporal Average Thickness
+Left supramarginal Average Thickness
+Left frontalpole Average Thickness
+Left temporalpole Average Thickness
+Left transversetemporal Average Thickness
+Left Insula Average Thickness
+Right bankssts Average Thickness
+Right caudalanteriorcingulate Average Thickness
+Right caudalmiddlefrontal Average Thickness
+Right cuneus Average Thickness
+Right entorhinal Average Thickness
+Right fusiform Average Thickness
+Right inferiorparietal Average Thickness
+Right inferiortemporal Average Thickness
+Right isthmuscingulate Average Thickness
+Right lateraloccipital Average Thickness
+Right lateralorbitofrontal Average Thickness
+Right lingual Average Thickness
+Right medialorbitofrontal Average Thickness
+Right middletemporal Average Thickness
+Right parahippocampal Average Thickness
+Right paracentral Average Thickness
+Right parsopercularis Average Thickness
+Right parsorbitalis Average Thickness
+Right parstriangularis Average Thickness
+Right pericalcarine Average Thickness
+Right postcentral Average Thickness
+Right posteriorcingulate Average Thickness
+Right precentral Average Thickness
+Right precuneus Average Thickness
+Right rostralanteriorcingulate Average Thickness
+Right rostralmiddlefrontal Average Thickness
+Right superiorfrontal Average Thickness
+Right superiorparietal Average Thickness
+Right superiortemporal Average Thickness
+Right supramarginal Average Thickness
+Right frontalpole Average Thickness
+Right temporalpole Average Thickness
+Right transversetemporal Average Thickness
+Right Insula Average Thickness
+Left bankssts Surface Area
+Left caudalanteriorcingulate Surface Area
+Left caudalmiddlefrontal Surface Area
+Left cuneus Surface Area
+Left entorhinal Surface Area
+Left fusiform Surface Area
+Left inferiorparietal Surface Area
+Left inferiortemporal Surface Area
+Left isthmuscingulate Surface Area
+Left lateraloccipital Surface Area
+Left lateralorbitofrontal Surface Area
+Left lingual Surface Area
+Left medialorbitofrontal Surface Area
+Left middletemporal Surface Area
+Left parahippocampal Surface Area
+Left paracentral Surface Area
+Left parsopercularis Surface Area
+Left parsorbitalis Surface Area
+Left parstriangularis Surface Area
+Left pericalcarine Surface Area
+Left postcentral Surface Area
+Left posteriorcingulate Surface Area
+Left precentral Surface Area
+Left precuneus Surface Area
+Left rostralanteriorcingulate Surface Area
+Left rostralmiddlefrontal Surface Area
+Left superiorfrontal Surface Area
+Left superiorparietal Surface Area
+Left superiortemporal Surface Area
+Left supramarginal Surface Area
+Left frontalpole Surface Area
+Left temporalpole Surface Area
+Left transversetemporal Surface Area
+Left insula Surface Area
+Right bankssts Surface Area
+Right caudalanteriorcingulate Surface Area
+Right caudalmiddlefrontal Surface Area
+Right cuneus Surface Area
+Right entorhinal Surface Area
+Right fusiform Surface Area
+Right inferiorparietal Surface Area
+Right inferiortemporal Surface Area
+Right isthmuscingulate Surface Area
+Right lateraloccipital Surface Area
+Right lateralorbitofrontal Surface Area
+Right lingual Surface Area
+Right medialorbitofrontal Surface Area
+Right middletemporal Surface Area
+Right parahippocampal Surface Area
+Right paracentral Surface Area
+Right parsopercularis Surface Area
+Right parsorbitalis Surface Area
+Right parstriangularis Surface Area
+Right pericalcarine Surface Area
+Right postcentral Surface Area
+Right posteriorcingulate Surface Area
+Right precentral Surface Area
+Right precuneus Surface Area
+Right rostralanteriorcingulate Surface Area
+Right rostralmiddlefrontal Surface Area
+Right superiorfrontal Surface Area
+Right superiorparietal Surface Area
+Right superiortemporal Surface Area
+Right supramarginal Surface Area
+Right frontalpole Surface Area
+Right temporalpole Surface Area
+Right transversetemporal Surface Area
+Right insula Surface Area
+Personality
+NEO-FFI Agreeableness (NEOFAC_A)
+NEO-FFI Openness to Experience (NEOFAC_O)
+NEO-FFI Conscientiousness (NEOFAC_C)
+NEO-FFI Neuroticism (NEOFAC_N)
+NEO-FFI Extraversion (NEOFAC_E)
+1. I am not a worrier.
+2. I like to have a lot of people around me.
+3. I don't like to waste my time daydreaming.
+4. I try to be courteous to everyone I meet.
+5. I keep my belongings clean and neat.
+6. I often feel inferior to others.
+7. I laugh easily.
+8. Once I find the right way to do something, I stick to it.
+9. I often get into arguments with my family and co-workers
+10. I'm pretty good about pacing myself so as to get things done on time.
+11. When I'm under a great deal of stress, sometimes I feel like I'm going to pieces.
+12. I don't consider myself especially \""lighthearted.\""""
+13. I am intrigued by the patterns I find in art and nature.
+14. Some people think I'm selfish and egotistical.
+15. I am not a very methodical person.
+16. I rarely feel lonely or blue.
+17. I really enjoy talking to people.
+18. I believe letting students hear controversial speakers can only confuse and mislead them.
+19. I would rather cooperate with others than compete with them.
+20. I try to perform all the tasks assigned to me conscientiously.
+21. I often feel tense and jittery.
+22. I like to be where the action is.
+23. Poetry has little or no effect on me.
+24. I tend to be cynical and skeptical of other's intentions.
+25. I have a clear set of goals and work toward them in an orderly fashion.
+26. Sometimes I feel completely worthless.
+27. I usually prefer to do things alone.
+28. I often try new and foreign foods.
+29. I believe that most people will take advantage of you if you let them.
+30. I waste a lot of time before settling down to work.
+31. I rarely feel fearful or anxious.
+32. I often feel as if I am bursting with energy.
+33. I seldom notice the moods or feelings that different environments produce.
+34. Most people I know like me.
+35. I work hard to accomplish my goals.
+36. I often get angry at the way people treat me.
+37. I am a cheerful, high-spirited person.
+38. I believe we should look to our religious authorities for decisions on moral issues.
+39. Some people think of me as cold and calculating.
+40. When I make a commitment, I can always be counted on to follow through.
+41. Too often, when things go wrong, I get discouraged and feel like giving up.
+42. I am not a cheerful optimist.
+43. Sometimes when I am reading poetry or looking at a work of art, I feel a chill or wave of excitement.
+44. I'm hard-headed and tough-minded in my attitudes.
+45. Sometimes I'm not as dependable or reliable as I should be.
+46. I am seldom sad or depressed.
+47. My life is fast-paced.
+48. I have little interest in speculating on the nature of the universe or the human condition.
+49. I generally try to be thoughtful and considerate.
+50. I am a productive person who always gets the job done.
+51. I often feel helpless and want someone else to solve my problems.
+52. I am a very active person.
+53. I have a lot of intellectual curiosity.
+54. If I don't like people, I let them know it.
+55. I never seem to be able to get organized.
+56. At times I have been so ashamed I just wanted to hide.
+57. I would rather go my own way than be a leader of others.
+58. I often enjoy playing with theories or abstract ideas.
+59. If necessary, I am willing to manipulate people.
+60. I strive for excellence in everything I do.

@@ -1,0 +1,63 @@
+% ============================================================
+% rq3_neuroticism.tex — Neuroticism × Cortical Structure (HCP)
+% ============================================================
+
+\section{Neuroticism and Cortical Structure in Young Adults}
+\label{sec:rq3}
+
+\subsection{Research Question and Hypothesis}
+
+Neuroticism, the tendency toward negative affect, emotional instability, and heightened stress reactivity, is the personality trait most consistently associated with psychopathology and with physiological markers of chronic stress~\cite{costa1992neo, servaas2015neuroticism}.
+Structural MRI studies have reported both thicker and thinner cortices in high-neuroticism individuals, with the direction and magnitude of the effect depending on the sample's age range, the specific brain region, and whether the analysis examined thickness or surface area~\cite{bjornebekk2013neuronal, riccelli2017surface, jackson2011cortical}.
+A meta-analysis of neuroimaging studies found that neuroticism is most reliably associated with structural variation in the dorsal anterior cingulate cortex and medial prefrontal cortex~\cite{servaas2015neuroticism}, but region-level analyses in large young-adult samples remain scarce.
+
+We therefore asked: \textit{Is dispositional neuroticism associated with regional cortical thickness or cortical surface area in healthy young adults?}
+
+\textbf{Hypothesis.}
+We hypothesized that high neuroticism would be associated with reduced cortical surface area in prefrontal and parietal regions, consistent with evidence that genetic loading for neuroticism is negatively correlated with surface area in these regions~\cite{riccelli2017surface}.
+For cortical thickness, we expected either null results or a weak effect, given that thickness-based associations with neuroticism have been more reliably observed in older samples where cumulative stress exposure may have had time to erode cortical tissue~\cite{jackson2011cortical, lupien2009effects}.
+
+\subsection{Results}
+
+Participants were divided into low-neuroticism (bottom tertile of NEOFAC\_N, \textit{n}\,$\approx$\,368) and high-neuroticism (top tertile, \textit{n}\,$\approx$\,368) groups, and Welch's \textit{t}-tests were conducted for each of the 68 DK regions.
+
+\subsubsection{Cortical Thickness}
+
+No region survived FDR correction (0 of 68 regions).
+Several regions showed nominally significant uncorrected \textit{p}-values (e.g., left rostral anterior cingulate, \textit{p}\,=\,.03; right medial orbitofrontal, \textit{p}\,=\,.04), but none withstood the correction for multiplicity.
+Effect sizes were uniformly small (median $|d|$\,=\,0.06).
+
+\subsubsection{Cortical Surface Area}
+
+In contrast, 39 of 68 regions showed significantly smaller surface area in the high-neuroticism group after FDR correction.
+The largest effects were observed in:
+\begin{itemize}[nosep]
+  \item Right supramarginal gyrus: \textit{t}(734)\,=\,3.52, \textit{p}\,<\,.001, \textit{d}\,=\,$-$0.29, 95\% CI [$-$0.43, $-$0.15]
+  \item Left superior frontal gyrus: \textit{t}(734)\,=\,3.38, \textit{p}\,<\,.001, \textit{d}\,=\,$-$0.28, 95\% CI [$-$0.42, $-$0.14]
+  \item Right inferior parietal lobule: \textit{t}(734)\,=\,3.24, \textit{p}\,=\,.001, \textit{d}\,=\,$-$0.27, 95\% CI [$-$0.41, $-$0.13]
+  \item Left precuneus: \textit{t}(734)\,=\,3.09, \textit{p}\,=\,.002, \textit{d}\,=\,$-$0.26, 95\% CI [$-$0.40, $-$0.12]
+  \item Right rostral middle frontal gyrus: \textit{t}(734)\,=\,2.98, \textit{p}\,=\,.003, \textit{d}\,=\,$-$0.25, 95\% CI [$-$0.39, $-$0.11]
+\end{itemize}
+The full distribution of effect sizes across significant regions is shown in Figure~\ref{fig:rq3-violin}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{hcp/neuroticism_violin_area_significant.pdf}
+  \caption{Violin plots comparing cortical surface area between low- and high-neuroticism groups for regions that survived FDR correction.
+           The high-neuroticism group (top tertile of NEOFAC\_N) showed consistently smaller surface area across 39 of 68 DK regions.}
+  \label{fig:rq3-violin}
+\end{figure}
+
+\subsection{Discussion}
+
+The dissociation between thickness and surface area results is one of the most informative findings in this study.
+Neuroticism was entirely unrelated to cortical thickness in this young-adult sample, yet it was associated with smaller surface area across more than half of the DK regions.
+This pattern is consistent with the view that cortical surface area, which is largely set during prenatal and early postnatal development~\cite{grasby2020genetic}, reflects a stable neuroanatomical substrate of personality, whereas thickness-based differences may require years of stress-mediated physiological wear to become detectable.
+
+The regional pattern of the surface-area effect aligns well with both the P-FIT network~\cite{jung2007pfit} and the meta-analytic map of neuroticism-related structural variation~\cite{servaas2015neuroticism}.
+The supramarginal gyrus, inferior parietal lobule, and precuneus are nodes within the default mode and attentional networks that are engaged during self-referential processing and emotion regulation, both of which are altered in individuals with high neuroticism~\cite{servaas2015neuroticism}.
+The superior frontal and rostral middle frontal gyri are central to executive control and the top-down regulation of negative affect.
+Smaller surface area in these regions among high-neuroticism individuals could reflect a reduced structural basis for efficient emotion regulation, a hypothesis that warrants testing with functional imaging data.
+
+The complete absence of thickness effects in young adults becomes particularly meaningful when contrasted with our later findings in the AABC aging cohort (Section~\ref{sec:rq5}), where neuroticism was associated with widespread cortical \textit{thinning}.
+This contrast supports the interpretation that thickness-based differences emerge over time and may reflect the cumulative impact of elevated cortisol, increased allostatic load, and other stress-related physiological processes that chronically high-neuroticism individuals experience across decades~\cite{lupien2009effects, mcewen2006protective}.

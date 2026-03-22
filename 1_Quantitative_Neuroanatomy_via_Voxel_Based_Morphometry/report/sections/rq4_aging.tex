@@ -1,0 +1,84 @@
+% ============================================================
+% rq4_aging.tex — Cortical Aging in the AABC Sample
+% ============================================================
+
+\section{Age-Related Changes in Cortical Thickness and Volume}
+\label{sec:rq4}
+
+\subsection{Research Question and Hypothesis}
+
+The aging brain undergoes widespread structural change.
+Cortical thickness declines in a roughly linear fashion from early adulthood onward, with the steepest losses typically observed in frontal, parietal, and primary sensorimotor cortices~\cite{salat2004thinning, fjell2010structural, hogstrom2013structure}.
+Cortical volume, which reflects the product of thickness and surface area, generally shows an even more pronounced decline because surface area itself decreases modestly in later decades~\cite{storsve2014differential, lemaitre2012normal}.
+Despite broad agreement on these trends, the regional specificity of age-related decline, particularly at the granularity afforded by the 360-region Glasser HCP-MMP1 atlas~\cite{glasser2016multimodal}, has not been thoroughly characterized in a single well-powered cross-sectional sample spanning mid- to late adulthood.
+
+We therefore asked: \textit{What is the regional pattern of age-related cortical thickness and volume decline across the adult lifespan (ages 36--89)?}
+
+\textbf{Hypothesis.}
+We hypothesized that age would be negatively correlated with both cortical thickness and volume across the large majority of Glasser regions, with the strongest effects in primary motor and somatosensory cortices and in heteromodal association areas of the frontal and parietal lobes~\cite{salat2004thinning, raz2005regional}.
+
+\subsection{Results}
+
+\subsubsection{Cortical Thickness}
+
+Pearson correlations between age and regional cortical thickness were computed for each of the 360 Glasser ROIs.
+After FDR correction, 356 of 360 regions showed a statistically significant negative correlation with age. The four non-significant regions were confined to small insular and piriform parcels.
+
+The five strongest negative correlations were:
+\begin{itemize}[nosep]
+  \item Left primary motor cortex (area 4): \textit{r}(1{,}150)\,=\,$-$.69, \textit{p}\,<\,.001, 95\% CI [$-$.72, $-$.66]
+  \item Right primary motor cortex (area 4): \textit{r}(1{,}150)\,=\,$-$.67, \textit{p}\,<\,.001, 95\% CI [$-$.70, $-$.64]
+  \item Left area 3b (primary somatosensory): \textit{r}(1{,}150)\,=\,$-$.64, \textit{p}\,<\,.001, 95\% CI [$-$.67, $-$.60]
+  \item Right area 3b: \textit{r}(1{,}150)\,=\,$-$.63, \textit{p}\,<\,.001, 95\% CI [$-$.66, $-$.59]
+  \item Left premotor cortex (area 6): \textit{r}(1{,}150)\,=\,$-$.61, \textit{p}\,<\,.001, 95\% CI [$-$.65, $-$.57]
+\end{itemize}
+
+Scatter plots for the top five regions are shown in Figure~\ref{fig:rq4-scatter-thick}.
+
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{aabc/aging_scatter_top5_thick.pdf}
+  \caption{Scatter plots of age versus cortical thickness for the five regions with the strongest age correlations.
+           Each point represents one AABC participant (\textit{N}\,=\,1{,}150).
+           The primary motor cortex exhibited the single largest effect (\textit{r}\,=\,$-$.69).}
+  \label{fig:rq4-scatter-thick}
+\end{figure}
+
+\subsubsection{Cortical Volume}
+
+The pattern for cortical volume closely paralleled that for thickness.
+Of 360 regions, 355 showed a significant negative correlation with age after FDR correction.
+The largest effects were again in primary motor and somatosensory cortices, with the strongest single correlation at \textit{r}\,=\,$-$.50 (left primary motor cortex).
+Scatter plots for the top five volume regions are shown in Figure~\ref{fig:rq4-scatter-vol}.
+
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{aabc/aging_scatter_top5_vol.pdf}
+  \caption{Scatter plots of age versus cortical volume for the five regions with the strongest age correlations (\textit{N}\,=\,1{,}150).}
+  \label{fig:rq4-scatter-vol}
+\end{figure}
+
+\subsubsection{ANOVA across Age Decades}
+
+One-way ANOVA across six age-decade bins (30s, 40s, 50s, 60s, 70s, 80+) confirmed that the age effect was not confined to the oldest participants.
+For the primary motor cortex (thickness), the omnibus \textit{F}-test was highly significant (\textit{F}(5, 1144)\,$>$\,100, \textit{p}\,<\,.001), and post-hoc Tukey HSD tests indicated that each successive decade differed significantly from the preceding one, supporting a continuous, approximately linear decline rather than a threshold effect.
+
+\subsection{Discussion}
+
+The near-universal negative correlation between age and both cortical thickness and volume across 360 Glasser regions confirms and extends prior findings obtained with coarser parcellations~\cite{salat2004thinning, fjell2010structural, raz2005regional}.
+The observation that primary motor cortex shows the single largest thickness decline (\textit{r}\,=\,$-$.69) is consistent with the hypothesis that phylogenetically older, heavily myelinated cortices are particularly susceptible to age-related demyelination and neuronal shrinkage~\cite{salat2004thinning, hogstrom2013structure}.
+This interpretation is reinforced by the similarly strong effects in primary somatosensory cortex (area 3b) and premotor cortex (area 6), both of which are agranular or dysgranular regions with thick myelinated layers.
+
+The ANOVA results demonstrate that the decline is not driven solely by the oldest age group but is instead a continuous process that is already detectable in comparisons between participants in their 40s and those in their 50s.
+This finding is important for intervention research, as it suggests that the window for neuroprotective strategies extends well into middle adulthood rather than being limited to the period after clinical aging becomes apparent~\cite{storsve2014differential}.
+
+\subsubsection{Implications for Aging}
+
+The magnitude of the age effects observed here provides an important quantitative benchmark for the field.
+A correlation of \textit{r}\,=\,$-$.69 means that age alone accounts for approximately 48\% of the between-subject variance in primary motor cortex thickness in this sample.
+This is a remarkably large proportion and suggests that, at the level of individual regions, aging is by far the dominant source of structural variation, dwarfing the effects of behavioral and personality variables examined in earlier sections.
+This observation has practical implications: any study that examines brain-behavior associations in a sample with substantial age heterogeneity must either statistically control for age or risk confounding behavioral effects with the much larger aging signal~\cite{fjell2010structural, raz2005regional}.

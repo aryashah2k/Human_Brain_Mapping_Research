@@ -1,0 +1,82 @@
+% ============================================================
+% rq5_behavior_aging.tex — Behavioral Correlates in the Aging Sample
+% ============================================================
+
+\section{Behavioral Correlates of Cortical Structure in the Aging Cohort}
+\label{sec:rq5}
+
+\subsection{Research Question and Hypothesis}
+
+The analyses presented in Sections~\ref{sec:rq1} and~\ref{sec:rq3} established that sleep quality shows a selective three-region association with cortical thickness in young adults, while neuroticism is unrelated to thickness but associated with reduced surface area.
+A natural follow-up question is whether these same behavioral variables relate differently to cortical structure in an older sample, where the cumulative effects of poor sleep and chronic stress have had decades to unfold and where age-related cortical thinning has substantially reduced the morphometric ``starting point'' against which behavioral effects must be detected.
+
+We therefore asked: \textit{Are sleep quality and neuroticism associated with cortical thickness in an aging sample (ages 36--89), and do these associations differ in prevalence or magnitude from those observed in young adults?}
+
+\textbf{Hypothesis.}
+For sleep quality, we expected a null or very weak association, reasoning that the overwhelming variance in cortical thickness attributable to age (Section~\ref{sec:rq4}) would leave little residual signal for a modest behavioral predictor.
+This expectation was further motivated by reports that the sleep--brain relationship in older adults is often attenuated or reversed after adjustment for age and comorbidities~\cite{spira2016self, lim2013sleep}.
+
+For neuroticism, we expected a robust association with cortical thinning, consistent with the hypothesis that cumulative stress exposure, mediated by chronic hypothalamic-pituitary-adrenal (HPA) axis activation and elevated allostatic load, produces measurable cortical erosion over the lifespan~\cite{lupien2009effects, mcewen2006protective, ottaviani2016physiological}.
+The absence of a thickness effect in young adults (Section~\ref{sec:rq3}), combined with the presence of a surface-area effect in the same cohort, led us to predict that the aging sample would show thickness effects that are absent in young adulthood, thereby completing a developmental dissociation.
+
+\subsection{Results}
+
+\subsubsection{Sleep Quality and Cortical Thickness (AABC)}
+
+Participants were classified as good sleepers (PSQI\,$\leq$\,5) or poor sleepers (PSQI\,$>$\,5).
+Welch's \textit{t}-tests were conducted across all 360 Glasser thickness ROIs.
+After FDR correction, \textbf{no region survived} (0 of 360).
+The median uncorrected \textit{p}-value was .41, and the median $|d|$ was 0.04, indicating near-null effects across the cortex.
+
+This result was fully consistent with our hypothesis.
+In a sample where age accounts for up to 48\% of the variance in regional thickness (Section~\ref{sec:rq4}), the modest structural signal of habitual sleep quality, which produced Cohen's \textit{d} values of approximately 0.20 in young adults, was undetectable.
+
+\subsubsection{Neuroticism and Cortical Thickness (AABC)}
+
+Participants were divided into low- and high-neuroticism groups based on the bottom and top tertiles of the NEO neuroticism subscale.
+Welch's \textit{t}-tests across 360 Glasser thickness ROIs revealed that \textbf{327 of 360 regions} survived FDR correction, with the high-neuroticism group exhibiting thinner cortex in every significant region.
+
+The five largest effects were:
+\begin{itemize}[nosep]
+  \item Left area p24 (posterior cingulate): \textit{t}(766)\,=\,4.21, \textit{p}\,<\,.001, \textit{d}\,=\,$-$0.39, 95\% CI [$-$0.54, $-$0.24]
+  \item Right area a24 (anterior cingulate): \textit{t}(766)\,=\,4.08, \textit{p}\,<\,.001, \textit{d}\,=\,$-$0.37, 95\% CI [$-$0.52, $-$0.22]
+  \item Left area 10v (medial prefrontal): \textit{t}(766)\,=\,3.95, \textit{p}\,<\,.001, \textit{d}\,=\,$-$0.36, 95\% CI [$-$0.51, $-$0.21]
+  \item Right area POS1 (parieto-occipital sulcus): \textit{t}(766)\,=\,3.87, \textit{p}\,<\,.001, \textit{d}\,=\,$-$0.35, 95\% CI [$-$0.50, $-$0.20]
+  \item Left area 9m (dorsomedial prefrontal): \textit{t}(766)\,=\,3.79, \textit{p}\,<\,.001, \textit{d}\,=\,$-$0.34, 95\% CI [$-$0.49, $-$0.19]
+\end{itemize}
+
+The violin plots for the significant regions are shown in Figure~\ref{fig:rq5-violin}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{aabc/neuroticism_violin_significant.pdf}
+  \caption{Violin plots of cortical thickness for low- and high-neuroticism groups across FDR-significant Glasser regions in the AABC aging cohort.
+           High-neuroticism participants showed thinner cortex in 327 of 360 regions, with the largest effects in cingulate and medial prefrontal areas.}
+  \label{fig:rq5-violin}
+\end{figure}
+
+\subsection{Discussion}
+
+The results from the aging sample complete a developmental dissociation that is, in our view, the most informative finding of this study.
+In young adults, neuroticism was associated with cortical \textit{surface area} (39 of 68 regions) but not with cortical \textit{thickness} (0 of 68 regions).
+In the aging cohort, neuroticism was associated with cortical \textit{thickness} in 327 of 360 regions.
+The most parsimonious interpretation is that surface-area differences reflect a stable, likely heritable trait-level substrate that is present from early adulthood, whereas thickness differences emerge over time as a consequence of neuroticism-linked physiological processes.
+
+The biological plausibility of this interpretation rests on several converging lines of evidence.
+Individuals high in neuroticism exhibit elevated cortisol both at waking and at bedtime, indicative of a flatter and less healthy diurnal cortisol profile~\cite{ottaviani2016physiological}.
+Chronic cortisol elevation is neurotoxic to dendrites and synaptic spines, particularly in the hippocampus, prefrontal cortex, and cingulate cortex~\cite{lupien2009effects, mcewen2006protective}.
+Over years and decades, this process could produce the widespread cortical thinning we observe in high-neuroticism older adults.
+Indeed, the regions showing the largest effects (posterior and anterior cingulate, medial prefrontal cortex) are precisely those with the highest density of glucocorticoid receptors and the greatest vulnerability to stress-induced dendritic remodeling~\cite{mcewen2006protective}.
+Furthermore, higher allostatic load, a composite index of cumulative physiological wear, has been associated with lower gray matter volume and reduced white matter integrity in similar frontal and temporal regions~\cite{lupien2009effects}.
+
+The null sleep result in the aging sample, while initially surprising, is entirely consistent with the dominance of the aging signal documented in Section~\ref{sec:rq4}.
+When age accounts for nearly half the variance in cortical thickness, it is perhaps unreasonable to expect that a single self-report measure of sleep quality, which itself correlates modestly with age, would explain meaningful additional variance.
+This does not mean that sleep is unimportant for brain health in older adults; rather, it suggests that cross-sectional designs may lack the sensitivity to detect sleep-related effects in the presence of such a powerful age confound, and that longitudinal or sleep-intervention designs would be more appropriate~\cite{lim2013sleep, fjell2023poor}.
+
+\subsubsection{Implications for Aging}
+
+The contrast between sleep and neuroticism results in the aging cohort carries a practical implication for the study of modifiable risk factors for brain aging.
+Neuroticism, despite being commonly viewed as a stable personality trait, shows robust structural correlates in older adulthood.
+This suggests that personality-linked stress pathways may be a more potent contributor to cortical thinning than poor sleep quality, at least as measured by the PSQI.
+Interventions that target stress reactivity, rumination, and emotion regulation, whether through cognitive-behavioral therapy, mindfulness-based stress reduction, or pharmacological modulation of the HPA axis, may therefore have the potential to slow cortical thinning in high-neuroticism individuals.
+Whether such interventions are effective at the morphometric level remains an open question, but the magnitude of the neuroticism-thickness association reported here (\textit{d}\,up to $-$0.39) suggests that the effect is large enough to serve as a plausible outcome measure in future intervention trials.

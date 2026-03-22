@@ -1,0 +1,232 @@
+VBM Analysis Pipeline — Step-by-Step Commands
+===============================================
+Run ALL commands from the project root directory: hbm1/
+Python 3.10+ is required.
+
+─────────────────────────────────────────────
+STEP 0 — Install dependencies
+─────────────────────────────────────────────
+pip install pandas numpy scipy statsmodels matplotlib openpyxl pyarrow
+
+─────────────────────────────────────────────
+STEP 1 — HCP data preparation
+─────────────────────────────────────────────
+python scripts/01_hcp_data_prep.py
+
+What it does:
+  • Loads HCP_YA_subjects_2026.csv (expected: 1,207 rows)
+  • Validates all required behavioural and FreeSurfer columns
+  • Coerces types; maps age bins to midpoints; recodes sex
+  • Drops subjects with any missing value in analysis variables
+  • Writes results/interim/hcp_clean.parquet
+  • Writes results/tables/hcp_column_manifest.txt
+
+Expected output:
+  ✓ HCP data preparation complete.
+
+─────────────────────────────────────────────
+STEP 2 — HCP Sleep × Cortical Thickness
+─────────────────────────────────────────────
+python scripts/02_hcp_sleep.py
+
+What it does:
+  • Groups: good sleepers (PSQI ≤ 5) vs. poor sleepers (PSQI > 5)
+  • Welch t-test on 68 DK thickness ROIs
+  • FDR correction (Benjamini–Hochberg, q < .05)
+  • Cohen's d and 95 % CI for each ROI
+
+Outputs:
+  results/tables/hcp_sleep_ttest_all.csv
+  results/tables/hcp_sleep_ttest_significant.csv
+  results/figures/hcp/sleep_bar_significant.pdf
+  results/figures/hcp/sleep_bar_significant.png
+
+─────────────────────────────────────────────
+STEP 3 — HCP Cognition × Cortical Surface Area
+─────────────────────────────────────────────
+python scripts/03_hcp_cognition.py
+
+What it does:
+  • Pearson correlation: PMAT24_A_CR × all 68 DK area ROIs
+  • FDR correction; 95 % CI via Fisher z-transform
+  • Scatter plots for top 5 ROIs (by |r|)
+
+Outputs:
+  results/tables/hcp_cognition_corr_all.csv
+  results/tables/hcp_cognition_corr_significant.csv
+  results/figures/hcp/cognition_scatter_top5.pdf
+  results/figures/hcp/cognition_scatter_top5.png
+
+─────────────────────────────────────────────
+STEP 4 — HCP Neuroticism × Cortical Structure
+─────────────────────────────────────────────
+python scripts/04_hcp_neuroticism.py
+
+What it does:
+  • Tertile split on NEOFAC_N (top vs. bottom third)
+  • Welch t-test on 68 DK thickness and 68 DK area ROIs
+  • FDR correction; violin plots with jitter for significant ROIs
+
+Outputs:
+  results/tables/hcp_neuroticism_thck_all.csv
+  results/tables/hcp_neuroticism_thck_significant.csv
+  results/tables/hcp_neuroticism_area_all.csv
+  results/tables/hcp_neuroticism_area_significant.csv
+  results/figures/hcp/neuroticism_violin_thck_significant.pdf/.png
+  results/figures/hcp/neuroticism_violin_area_significant.pdf/.png
+
+─────────────────────────────────────────────
+STEP 5 — AABC data preparation
+─────────────────────────────────────────────
+python scripts/05_aabc_data_prep.py
+
+What it does:
+  • Loads AABC_Demographics.csv; filters to baseline visit (_V1)
+  • Loads Cortical_Areal_Thicknesses / Volumes / Surface_Areas / Myelin CSVs
+  • Merges all modalities on subject_id; drops subjects missing age or sex
+  • Writes results/interim/aabc_clean.parquet
+  • Writes results/tables/aabc_column_manifest.txt
+
+Expected output:
+  ✓ AABC data preparation complete.
+
+─────────────────────────────────────────────
+STEP 6 — AABC Aging × Cortical Structure
+─────────────────────────────────────────────
+python scripts/06_aabc_aging.py
+
+What it does:
+  • Pearson correlation: age_open × all Glasser thickness ROIs
+  • Pearson correlation: age_open × all Glasser volume ROIs
+  • FDR correction; one-way ANOVA by age decade, Tukey HSD post-hoc
+  • Heatmaps (LH + RH) and top-5 scatter plots
+
+─────────────────────────────────────────────
+STEP 6b — AABC Behavioral × Cortical Thickness
+─────────────────────────────────────────────
+python scripts/06b_aabc_behavior.py
+
+  → Requires: 05_aabc_data_prep.py to have been run first (parquet includes
+    psqi_global and neo_n from the XL behavioral file).
+
+What it does:
+  • PSQI grouping (good ≤5 vs. poor >5): Welch t-tests on 360 Glasser
+    thickness ROIs, FDR-BH (q<.05), Cohen's d, APA tables
+  • NEO-N tertile split: Welch t-tests, violin plots with jitter
+
+Outputs:
+  results/tables/aabc_sleep_ttest_all.csv
+  results/tables/aabc_sleep_ttest_significant.csv
+  results/tables/aabc_neuroticism_thck_all.csv
+  results/tables/aabc_neuroticism_thck_significant.csv
+  results/figures/aabc/sleep_bar_significant.pdf/.png  (if any sig.)
+  results/figures/aabc/neuroticism_violin_significant.pdf/.png
+
+Outputs:
+  results/tables/aabc_aging_thick_corr_all.csv
+  results/tables/aabc_aging_thick_corr_significant.csv
+  results/tables/aabc_aging_vol_corr_all.csv
+  results/tables/aabc_aging_vol_corr_significant.csv
+  results/tables/aabc_aging_anova_thick.csv
+  results/tables/aabc_aging_anova_vol.csv
+  results/figures/aabc/aging_heatmap_thick_lh.pdf/.png
+  results/figures/aabc/aging_heatmap_thick_rh.pdf/.png
+  results/figures/aabc/aging_heatmap_vol_lh.pdf/.png
+  results/figures/aabc/aging_heatmap_vol_rh.pdf/.png
+  results/figures/aabc/aging_scatter_top5_thick.pdf/.png
+  results/figures/aabc/aging_scatter_top5_vol.pdf/.png
+
+─────────────────────────────────────────────
+STEP 7 — Atlas mapping (DK ↔ Glasser)
+─────────────────────────────────────────────
+python scripts/07_atlas_mapping.py
+
+What it does:
+  • Loads HCP-MMP1_UniqueRegionList.csv (360 Glasser regions)
+  • Builds DK → Glasser lobe correspondence table
+  • Produces per-lobe ROI count summary for cross-dataset comparison
+
+Outputs:
+  results/tables/atlas_dk_to_glasser_map.csv
+  results/tables/atlas_glasser_regions.csv
+  results/tables/atlas_cross_dataset_summary.csv
+
+─────────────────────────────────────────────
+STEP 8 — Assemble report tables (Excel workbook)
+─────────────────────────────────────────────
+python scripts/08_report_tables.py
+
+  ⚠  Must be run AFTER steps 1–7 are complete.
+
+What it does:
+  • Reads all CSV outputs from results/tables/
+  • Assembles into a single Excel workbook (one sheet per analysis)
+  • Each sheet includes a method note header row
+
+Output:
+  results/tables/VBM_Analysis_Summary.xlsx
+
+─────────────────────────────────────────────
+FULL PIPELINE (run all steps in order)
+─────────────────────────────────────────────
+python scripts/01_hcp_data_prep.py   && ^
+python scripts/02_hcp_sleep.py       && ^
+python scripts/03_hcp_cognition.py   && ^
+python scripts/04_hcp_neuroticism.py && ^
+python scripts/05_aabc_data_prep.py  && ^
+python scripts/06_aabc_aging.py      && ^
+python scripts/07_atlas_mapping.py   && ^
+python scripts/08_report_tables.py
+
+(On Linux/macOS replace ^ with \)
+
+─────────────────────────────────────────────
+EXPECTED FINAL FOLDER STRUCTURE
+─────────────────────────────────────────────
+hbm1/
+├── scripts/
+│   ├── utils.py
+│   ├── 01_hcp_data_prep.py
+│   ├── 02_hcp_sleep.py
+│   ├── 03_hcp_cognition.py
+│   ├── 04_hcp_neuroticism.py
+│   ├── 05_aabc_data_prep.py
+│   ├── 06_aabc_aging.py
+│   ├── 07_atlas_mapping.py
+│   └── 08_report_tables.py
+├── results/
+│   ├── interim/
+│   │   ├── hcp_clean.parquet
+│   │   └── aabc_clean.parquet
+│   ├── tables/
+│   │   ├── hcp_sleep_ttest_all.csv
+│   │   ├── hcp_sleep_ttest_significant.csv
+│   │   ├── hcp_cognition_corr_all.csv
+│   │   ├── hcp_cognition_corr_significant.csv
+│   │   ├── hcp_neuroticism_thck_all.csv
+│   │   ├── hcp_neuroticism_thck_significant.csv
+│   │   ├── hcp_neuroticism_area_all.csv
+│   │   ├── hcp_neuroticism_area_significant.csv
+│   │   ├── aabc_aging_thick_corr_all.csv
+│   │   ├── aabc_aging_thick_corr_significant.csv
+│   │   ├── aabc_aging_vol_corr_all.csv
+│   │   ├── aabc_aging_vol_corr_significant.csv
+│   │   ├── aabc_aging_anova_thick.csv
+│   │   ├── aabc_aging_anova_vol.csv
+│   │   ├── atlas_dk_to_glasser_map.csv
+│   │   ├── atlas_glasser_regions.csv
+│   │   ├── atlas_cross_dataset_summary.csv
+│   │   └── VBM_Analysis_Summary.xlsx
+│   └── figures/
+│       ├── hcp/
+│       │   ├── sleep_bar_significant.pdf/.png
+│       │   ├── cognition_scatter_top5.pdf/.png
+│       │   ├── neuroticism_violin_thck_significant.pdf/.png
+│       │   └── neuroticism_violin_area_significant.pdf/.png
+│       └── aabc/
+│           ├── aging_heatmap_thick_lh.pdf/.png
+│           ├── aging_heatmap_thick_rh.pdf/.png
+│           ├── aging_heatmap_vol_lh.pdf/.png
+│           ├── aging_heatmap_vol_rh.pdf/.png
+│           ├── aging_scatter_top5_thick.pdf/.png
+│           └── aging_scatter_top5_vol.pdf/.png

@@ -1,0 +1,87 @@
+% ============================================================
+% methods.tex
+% ============================================================
+
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Participants and Datasets}
+\label{sec:methods-data}
+
+Two publicly available datasets were used, chosen to span complementary segments of the adult lifespan and to provide well-validated behavioral phenotyping alongside high-resolution structural MRI.
+
+\subsubsection{Human Connectome Project -- Young Adult (HCP-YA)}
+
+The HCP-YA dataset~\cite{vanessen2013wuminn} comprises healthy adults aged 22 to 37 who were recruited as part of the WU-Minn consortium.
+After excluding participants with missing values on any analysis variable (sleep quality, fluid intelligence, neuroticism, or FreeSurfer-derived structural metrics), the final analytic sample consisted of \textit{N}\,=\,1{,}104 individuals.
+Participants completed the Pittsburgh Sleep Quality Index (PSQI;~\cite{buysse1989pittsburgh}), providing a global sleep-quality score with higher values indicating poorer sleep; the Penn Progressive Matrices (PMAT24\_A\_CR), a measure of fluid reasoning; and the NEO Five-Factor Inventory neuroticism subscale (NEOFAC\_N;~\cite{costa1992neo}).
+Each participant's T1-weighted MRI was processed through the FreeSurfer pipeline~\cite{fischl2012freesurfer}, yielding estimates of regional cortical thickness and cortical surface area for 34 regions per hemisphere (68 total) based on the Desikan-Killiany (DK) atlas~\cite{desikan2006automated}.
+Only baseline-visit scans were retained when multiple visits were available.
+Age was recorded in bins (e.g., 22--25, 26--30, 31--35); we used the midpoint of each bin for descriptive purposes.
+
+\subsubsection{Aging Brain and Behaviour Cohort (AABC Release 2)}
+
+The AABC study~\cite{bookheimer2019aging} recruited a community-dwelling sample spanning ages 36 to 89, with data acquired across multiple sites as part of the Lifespan Human Connectome Project in Aging.
+Structural MRI data were processed using FreeSurfer, and cortical parcellation followed the Glasser HCP-MMP1 atlas~\cite{glasser2016multimodal}, which subdivides each hemisphere into 180 cytoarchitectonically defined regions (360 total).
+Behavioral data were obtained from the extended non-imaging battery, which includes the PSQI global sleep-quality score and the NEO neuroticism subscale.
+After merging demographic, behavioral, and structural data and retaining only baseline visits, the final sample comprised \textit{N}\,=\,1{,}150 participants.
+Age was recorded as a continuous variable, and for ANOVA analyses, participants were binned into decades (30s, 40s, 50s, 60s, 70s, 80+).
+
+\subsection{Cortical Parcellation Atlases}
+\label{sec:methods-atlases}
+
+The two datasets employ different parcellation schemes, which differ in spatial resolution and in the principles underlying region definition.
+The Desikan-Killiany atlas~\cite{desikan2006automated} defines 34 gyral-based regions per hemisphere on the basis of macroanatomical landmarks; it is widely used in clinical and population-level studies owing to its high test-retest reliability across scanners.
+The Glasser HCP-MMP1 atlas~\cite{glasser2016multimodal} defines 180 regions per hemisphere using multimodal boundaries derived from cortical architecture, function, connectivity, and topography; it offers substantially finer granularity but requires high-quality data for accurate parcellation.
+Because the two atlases partition the cortex at different spatial scales, region-level results cannot be compared directly.
+To facilitate cross-dataset interpretation, we constructed a lobe-level correspondence table that maps each DK region and each Glasser region to one of five canonical lobes (Frontal, Parietal, Temporal, Occipital, Insular).
+For DK regions in the cingulate cortex, anterior cingulate regions were assigned to the Frontal lobe and posterior/isthmus cingulate regions were assigned to the Parietal lobe, consistent with cytoarchitectonic conventions used in the Glasser atlas.
+The resulting lobe-level mapping is visualized in Figure~\ref{fig:atlas-lobe}, which renders both atlases on the fsaverage inflated surface with shared lobe coloring.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{atlas_lobe_correspondence.pdf}
+  \caption{Lobe-level correspondence between the Desikan-Killiany atlas (left; 34 regions per hemisphere) and the Glasser HCP-MMP1 atlas (right; 180 regions per hemisphere), rendered on the fsaverage5 inflated surface.
+           Both atlases are colored by the same five-lobe scheme (Frontal, Parietal, Temporal, Occipital, Insular).
+           The central legend indicates the number of regions per lobe in each atlas.}
+  \label{fig:atlas-lobe}
+\end{figure}
+
+\subsection{Statistical Analyses}
+\label{sec:methods-stats}
+
+All analyses were performed in Python 3.11 using \texttt{scipy.stats}, \texttt{statsmodels}, and \texttt{pandas}.
+The analytic strategy was held constant across research questions to permit direct comparison of effect sizes.
+
+\subsubsection{Group Comparisons}
+
+For research questions involving a categorical grouping variable (sleep quality, neuroticism), participants were divided into two groups and each region of interest (ROI) was tested independently.
+For sleep quality, participants scoring $\leq$\,5 on the PSQI were classified as good sleepers and those scoring $>$\,5 as poor sleepers~\cite{buysse1989pittsburgh}.
+For neuroticism, the bottom and top tertiles of the NEOFAC\_N distribution were retained as the low- and high-neuroticism groups, respectively.
+Between-group differences in cortical thickness (or surface area) at each ROI were assessed using Welch's \textit{t}-test, which does not assume equal variances.
+The effect size for each comparison was quantified as Cohen's \textit{d} using the pooled standard deviation~\cite{cohen1988statistical}:
+\begin{equation}
+  d = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\dfrac{(n_1 - 1)\,s_1^2 + (n_2 - 1)\,s_2^2}{n_1 + n_2 - 2}}}
+  \label{eq:cohens-d}
+\end{equation}
+Ninety-five percent confidence intervals for \textit{d} were obtained using a normal approximation based on the standard error of \textit{d}~\cite{cohen1988statistical}.
+
+\subsubsection{Correlational Analyses}
+
+For research questions involving a continuous predictor (fluid intelligence, age), Pearson's product-moment correlation coefficient (\textit{r}) was computed between the predictor and the cortical metric at each ROI.
+Ninety-five percent confidence intervals for \textit{r} were derived via the Fisher \textit{z}-transformation.
+In the aging analyses, one-way ANOVA across age-decade bins was additionally computed for each FDR-significant region to characterize the functional form of the age effect and to test whether the decline was uniform across decades.
+
+\subsubsection{Multiple-Comparison Correction}
+
+Within each set of ROI-wise tests, \textit{p}-values were corrected for multiplicity using the Benjamini-Hochberg false discovery rate (FDR-BH) procedure~\cite{benjamini1995controlling} at \textit{q}\,<\,.05.
+A region was considered statistically significant only if its FDR-corrected \textit{p}-value fell below .05.
+This approach was chosen over family-wise error rate corrections (e.g., Bonferroni) because it provides a more favorable balance between Type~I and Type~II error rates in large-scale neuroimaging analyses where dozens to hundreds of tests are conducted simultaneously.
+
+\subsubsection{Reporting Conventions}
+
+All results are reported in APA format.
+For \textit{t}-tests, we report \textit{t}(df)\,=\,\textit{value}, \textit{p}\,=\,\textit{value}, \textit{d}\,=\,\textit{value}, 95\% CI [\textit{lower}, \textit{upper}].
+For correlations, we report \textit{r}(\textit{N})\,=\,\textit{value}, \textit{p}\,=\,\textit{value}, 95\% CI [\textit{lower}, \textit{upper}].
+Exact \textit{p}-values are reported to three decimal places; values smaller than .001 are reported as \textit{p}\,<\,.001.
+All effect sizes are accompanied by 95\% confidence intervals.

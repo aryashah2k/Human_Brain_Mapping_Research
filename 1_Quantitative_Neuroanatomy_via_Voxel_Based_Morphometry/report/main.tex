@@ -1,0 +1,124 @@
+% ============================================================
+% main.tex — VBM Analysis of Cortical Structure across the Adult Lifespan
+% ============================================================
+\documentclass[12pt, a4paper]{article}
+
+% ---- Encoding & Fonts ----
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}            % Times Roman for body text
+
+% ---- Page Layout ----
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\doublespacing
+
+% ---- Language & Typography ----
+\usepackage[english]{babel}
+\usepackage{microtype}
+
+% ---- Mathematics ----
+\usepackage{amsmath, amssymb}
+
+% ---- Tables ----
+\usepackage{booktabs}            % Professional-quality horizontal rules
+\usepackage{tabularx}            % Full-width tables with X columns
+\usepackage{multirow}            % Cells spanning multiple rows
+\usepackage{makecell}            % Line breaks inside cells
+\usepackage{longtable}           % Multi-page tables
+\usepackage{array}               % Extended column specifications
+\usepackage{siunitx}             % Decimal-aligned columns
+
+% ---- Figures & Graphics ----
+\usepackage{graphicx}
+\graphicspath{{../results/figures/}}
+\usepackage{subcaption}          % Sub-figures (a), (b), (c)
+\usepackage{float}               % Exact float placement [H]
+
+% ---- Colors ----
+\usepackage[dvipsnames]{xcolor}
+
+% ---- Captions ----
+\usepackage[font=small, labelfont=bf, labelsep=period]{caption}
+
+% ---- Lists ----
+\usepackage{enumitem}
+
+% ---- Cross-references & Hyperlinks ----
+\usepackage[colorlinks=true,
+            linkcolor=MidnightBlue,
+            citecolor=MidnightBlue,
+            urlcolor=MidnightBlue]{hyperref}
+
+% ---- Bibliography (inline thebibliography, no .bib needed) ----
+
+% ---- Line Numbers (for review) ----
+\usepackage{lineno}
+
+% ---- Section Header Formatting ----
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection.}{0.5em}{}
+
+% ---- Compact Spacing for Display Equations ----
+\AtBeginDocument{%
+  \abovedisplayskip=8pt plus 2pt minus 4pt
+  \belowdisplayskip=8pt plus 2pt minus 4pt
+}
+
+% ============================================================
+% Document Metadata
+% ============================================================
+\title{\textbf{Cortical Morphometry across Behavior and Age:\\
+A Dual-Cohort Study of Sleep, Cognition, Personality,\\
+and Lifespan Structural Change}}
+
+\author{%
+  Author Name \\
+  \textit{Department of Cognitive Neuroscience} \\
+  \textit{University Name} \\
+  \texttt{author@university.edu}
+}
+
+\date{}
+
+% ============================================================
+\begin{document}
+
+\maketitle
+
+% ---- Abstract ----
+\input{sections/abstract}
+
+% ---- Introduction ----
+\input{sections/introduction}
+
+% ---- Methods ----
+\input{sections/methods}
+
+% ---- RQ1: Sleep Quality ----
+\input{sections/rq1_sleep}
+
+% ---- RQ2: Fluid Intelligence ----
+\input{sections/rq2_cognition}
+
+% ---- RQ3: Neuroticism ----
+\input{sections/rq3_neuroticism}
+
+% ---- RQ4: Cortical Aging ----
+\input{sections/rq4_aging}
+
+% ---- RQ5: Behavioral Correlates in Aging ----
+\input{sections/rq5_behavior_aging}
+
+% ---- General Discussion ----
+\input{sections/discussion}
+
+% ---- Conclusion ----
+\input{sections/conclusion}
+
+% ---- References ----
+\input{sections/references}
+
+\end{document}

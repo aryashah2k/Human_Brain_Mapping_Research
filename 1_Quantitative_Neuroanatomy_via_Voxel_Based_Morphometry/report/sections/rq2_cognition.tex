@@ -1,0 +1,62 @@
+% ============================================================
+% rq2_cognition.tex — Fluid Intelligence × Cortical Surface Area (HCP)
+% ============================================================
+
+\section{Fluid Intelligence and Cortical Surface Area in Young Adults}
+\label{sec:rq2}
+
+\subsection{Research Question and Hypothesis}
+
+The neural basis of human intelligence has been studied extensively, with the Parieto-Frontal Integration Theory (P-FIT) providing the most comprehensive neuroanatomical framework to date~\cite{jung2007pfit}.
+P-FIT posits that intelligent behavior depends on the efficient integration of information across a distributed network anchored in the dorsolateral prefrontal cortex and the superior and inferior parietal lobules, with additional contributions from temporal and occipital association areas~\cite{jung2007pfit, colom2009human}.
+While many studies have examined the relationship between intelligence and gray matter \textit{volume}~\cite{pietschnig2015meta}, volume confounds two geometrically distinct cortical properties: thickness and surface area.
+Surface area, which reflects the degree of cortical folding and the tangential expansion of cortical columns, has a substantially different genetic architecture from thickness~\cite{grasby2020genetic} and may therefore relate to cognitive ability through distinct biological mechanisms.
+Few studies have isolated the surface-area component in a sample large enough to test region-wise associations with adequate statistical power.
+
+We therefore asked: \textit{Is fluid intelligence associated with regional cortical surface area in healthy young adults?}
+
+\textbf{Hypothesis.}
+Drawing on the P-FIT model~\cite{jung2007pfit} and the observation that cortical expansion is greatest in association cortices~\cite{grasby2020genetic}, we hypothesized that higher fluid intelligence scores would be associated with greater cortical surface area, with the strongest associations in parietal, frontal, and temporal regions.
+
+\subsection{Results}
+
+Pearson correlations were computed between PMAT24 scores and cortical surface area for each of the 68 DK ROIs.
+After Benjamini-Hochberg FDR correction at \textit{q}\,<\,.05, all 68 regions showed a statistically significant positive correlation between fluid intelligence and surface area.
+The universality of this effect was striking: even the weakest regional correlation reached statistical significance after correction.
+
+The five strongest associations were concentrated in the temporal lobe:
+\begin{itemize}[nosep]
+  \item Right inferior temporal: \textit{r}(1{,}104)\,=\,.290, \textit{p}\,<\,.001, 95\% CI [.234, .344]
+  \item Left middle temporal: \textit{r}(1{,}104)\,=\,.278, \textit{p}\,<\,.001, 95\% CI [.221, .333]
+  \item Right middle temporal: \textit{r}(1{,}104)\,=\,.273, \textit{p}\,<\,.001, 95\% CI [.216, .328]
+  \item Left inferior temporal: \textit{r}(1{,}104)\,=\,.265, \textit{p}\,<\,.001, 95\% CI [.208, .320]
+  \item Right superior temporal: \textit{r}(1{,}104)\,=\,.258, \textit{p}\,<\,.001, 95\% CI [.201, .314]
+\end{itemize}
+Frontal and parietal regions also showed robust positive correlations, with \textit{r}-values typically between .15 and .25.
+The overall pattern is visualized in Figure~\ref{fig:rq2-scatter}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{hcp/cognition_scatter_top5.pdf}
+  \caption{Scatter plots of fluid intelligence (PMAT24 score) versus cortical surface area for the five regions with the strongest Pearson correlations.
+           Each point represents one participant (\textit{N}\,=\,1{,}104).
+           All 68 regions reached FDR-corrected significance.}
+  \label{fig:rq2-scatter}
+\end{figure}
+
+\subsection{Discussion}
+
+The universal positive association between fluid intelligence and cortical surface area across all 68 DK regions is consistent with the view that intelligence is not localized to a handful of ``smart'' regions but instead reflects the global efficiency of a broadly distributed cortical network~\cite{deary2010neuroscience}.
+This finding extends prior work on the P-FIT model~\cite{jung2007pfit}, which emphasized parietal and frontal nodes, by demonstrating that temporal association areas show the strongest surface-area associations with fluid reasoning.
+The inferior and middle temporal gyri are involved in visual object recognition, semantic processing, and the integration of bottom-up perceptual evidence with top-down expectations, processes that are central to the matrix-reasoning task used to assess fluid intelligence in the HCP~\cite{colom2009human}.
+
+Several features of our results merit emphasis.
+First, the largest correlations (\textit{r}\,$\approx$\,.29) are modest by conventional standards but are among the largest region-level associations reported in single-cohort studies of comparable size~\cite{pietschnig2015meta}.
+The magnitude is consistent with the meta-analytic estimate of \textit{r}\,$\approx$\,.25 for the overall association between total brain volume and intelligence~\cite{pietschnig2015meta}, suggesting that surface area captures much of the structural variance that is relevant to cognitive ability.
+Second, the specificity to surface area, rather than thickness, is theoretically informative.
+Cortical surface area is largely determined by the number of cortical columns, which is established prenatally and shows high heritability~\cite{grasby2020genetic}.
+Cortical thickness, by contrast, reflects the laminar organization of individual columns and is more sensitive to environmental and experiential factors.
+The stronger association with surface area therefore suggests that the structural substrate of fluid intelligence in young adults is primarily a reflection of early cortical development rather than ongoing experience-dependent plasticity.
+
+A caveat is that the PMAT24 is a relatively brief 24-item measure that assesses only nonverbal matrix reasoning, which captures one facet of fluid intelligence.
+Studies using more comprehensive cognitive batteries may reveal a more differentiated regional pattern.
