@@ -1,0 +1,35 @@
+Statistical Analysis of P300 Mean Amplitude (300–500 ms, channels: Pz, CPz, P3, P4, Cz)
+========================================================================
+
+Descriptive Statistics
+----------------------------------------
+  Standard                 : M = +0.231 µV, SD = 2.863, SEM = 0.126, n = 518
+  Oddball                  : M = +4.658 µV, SD = 3.170, SEM = 0.300, n = 112
+  Noise                    : M = +1.081 µV, SD = 3.067, SEM = 0.291, n = 111
+
+One-Way Independent ANOVA
+----------------------------------------
+  A one-way ANOVA revealed a significant main effect of stimulus type on
+  P300 mean amplitude, F(2, 738) = 103.86, p < .001.
+
+Post-Hoc Independent-Samples t-Tests (Bonferroni-corrected alpha = .017)
+----------------------------------------
+  Oddball vs. Standard: t(628) = 14.53, p < .001, d = 1.46
+  Oddball vs. Noise:    t(221) = 8.53, p < .001, d = 1.14
+  Standard vs. Noise:   t(627) = -2.80, p = 0.016
+
+Interpretation
+----------------------------------------
+  The oddball condition elicited a significantly larger P300 amplitude
+  compared to both standard and noise conditions, consistent with the
+  target-detection P300 (P3b) component reflecting attentional resource
+  allocation and working memory updating in response to task-relevant
+  deviant stimuli (Polich, 2007; Picton, 1992).
+
+References
+----------------------------------------
+  Picton, T. W. (1992). The P300 wave of the human event-related potential.
+    Journal of Clinical Neurophysiology, 9(4), 456–479.
+  Polich, J. (2007). Updating P300: An integrative theory of P3a and P3b.
+    Clinical Neurophysiology, 118(10), 2128–2148.
+    https://doi.org/10.1016/j.clinph.2007.04.019

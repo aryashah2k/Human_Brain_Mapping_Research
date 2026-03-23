@@ -1,0 +1,121 @@
+P300 Mean Amplitude (300–500 ms) and Peak Latency at Pz
+============================================================
+
+  Average Reference             : mean amp = +4.384 µV, peak latency = 406.2 ms
+  Cz Reference                  : mean amp = +1.280 µV, peak latency = 476.6 ms
+  Linked Mastoids (TP7+TP8)     : mean amp = +5.279 µV, peak latency = 398.4 ms
+  Fpz (Nasion Proxy)            : mean amp = +9.471 µV, peak latency = 406.2 ms
+  No Re-reference (CMS/DRL)     : mean amp = -1.013 µV, peak latency = 250.0 ms
+
+
+Discussion: How Reference Choice Affects ERP Topography
+========================================================
+
+Background
+----------
+In EEG, all voltage measurements are inherently relative — the recorded signal
+at any electrode reflects the potential difference between that electrode and a
+chosen reference. This means the reference is never "neutral"; it is always an
+active contributor to the scalp topography observed.
+
+Effects of Each Reference Scheme on P300 Topography
+----------------------------------------------------
+
+1. Average Reference
+   The average reference computes the mean across all scalp electrodes and
+   subtracts it from each channel. This approximates a "zero-potential" reference
+   if the electrode coverage is dense and approximately uniform across the head.
+   For the P300 (maximally positive at centro-parietal sites), the average
+   reference distributes the return current across all sensors, yielding a
+   broadly accurate centro-parietal positivity with complementary frontal
+   negativity. This is the de-facto standard for ERP topography analysis
+   (Luck, 2005; Nunez & Srinivasan, 2006).
+
+2. Cz Reference
+   Cz sits at the vertex — near the center of P300 activity. Referencing to Cz
+   subtracts the P300 signal itself from all other channels, artificially
+   suppressing the apparent amplitude of centro-parietal electrodes and shifting
+   the apparent topographic center outward. The P300 positivity will appear
+   weaker or absent at parietal sites and may create spurious polarities at
+   frontal or temporal channels (Donchin & Hagans, 1977).
+
+3. Linked Mastoids (TP7 + TP8)
+   Mastoid references are common in clinical EEG and auditory ERP research.
+   For auditory P300, the mastoids are relatively inactive (low voltage at
+   latencies of 300–500 ms), making them a reasonable choice. However, mastoid
+   referencing can introduce asymmetries if one mastoid is noisier than the
+   other, and it tends to inflate fronto-central amplitudes compared to average
+   reference (Hagemann et al., 2001). The occipito-temporal activity can be
+   slightly suppressed relative to average reference due to proximity of TP7/TP8.
+
+4. Fpz / Nasion Reference
+   The Fpz electrode (frontal midline, closest available to nasion) is highly
+   susceptible to eye-blink and frontal muscle artefacts. Using it as a reference
+   injects these artefacts into every channel. For P300 analysis this is a
+   particularly poor choice: the blink-contaminated Fpz reference inverts frontal
+   voltages and distorts the centro-parietal P300 positivity, often generating
+   artifactual anterior-posterior gradients. It is generally not recommended
+   for cognitive ERP research (Nunez et al., 1997).
+
+5. No Re-reference (CMS/DRL, Biosemi)
+   The Biosemi CMS/DRL system uses a Common Mode Sense (CMS) electrode and a
+   Driven Right Leg (DRL) electrode rather than a true ground/reference. Without
+   re-referencing, each channel's offset is determined by the CMS location
+   (typically near POz). This can introduce a common DC offset and the true
+   scalp distribution is obscured, making topographic interpretation unreliable
+   (Biosemi, 2020). It is never recommended for publication-quality topographic
+   analysis.
+
+Why Reference Shifts the 'Center' of Electrical Activity
+---------------------------------------------------------
+The apparent "center" of activation in a topographic map is determined by where
+the most positive (or most negative) voltages are observed relative to the
+reference. When the reference carries residual signal at the P300 latency
+(e.g., Cz, Fpz), that signal is subtracted from all electrodes, rigidly shifting
+the entire topographic landscape. Electrodes physically close to the reference
+site will appear suppressed, while distant electrodes may paradoxically appear
+more activated — an entirely artifactual redistribution.
+
+Best Reference for Occipito-Temporal Mapping
+---------------------------------------------
+For the P300 and occipito-temporal ERP components (e.g., P1, N170 for face
+stimuli; N200/P300 for auditory deviants), the **average reference** provides
+the most accurate spatial representation because:
+  (a) It does not preferentially suppress any scalp region.
+  (b) It preserves the bilateral occipito-temporal distribution of sensory
+      components (P1, N1) while maintaining the centro-parietal P300 signature.
+  (c) It is recommended by consensus guidelines for high-density EEG (>32 ch)
+      topographic analysis (Luck, 2005; Hari & Puce, 2017).
+The linked mastoids offer a reasonable alternative for auditory ERPs when
+occipito-temporal activity is of secondary interest, but average reference
+remains superior for whole-scalp comparisons.
+
+References
+----------
+Biosemi (2020). ActiveTwo system description.
+  https://www.biosemi.com/faq/cms&drl.htm
+
+Donchin, E., & Hagans, C. L. (1977). A re-examination of the endogenous
+  components of the event-related potential. In J. E. Desmedt (Ed.),
+  Progress in Clinical Neurophysiology (Vol. 1, pp. 349–411). Karger.
+
+Hagemann, D., Naumann, E., & Thayer, J. F. (2001). The quest for the EEG
+  reference revisited: A glance from brain asymmetry research.
+  Psychophysiology, 38(5), 847–857. https://doi.org/10.1111/1469-8986.3850847
+
+Hari, R., & Puce, A. (2017). MEG-EEG Primer. Oxford University Press.
+
+Luck, S. J. (2005). An Introduction to the Event-Related Potential Technique.
+  MIT Press.
+
+Nunez, P. L., Silberstein, R. B., Shi, Z., Carpenter, M. R., Srinivasan, R.,
+  Tucker, D. M., ... & Cadusch, P. J. (1999). EEG coherency II: experimental
+  comparisons of multiple measures. Clinical Neurophysiology, 110(3), 469–486.
+  https://doi.org/10.1016/S1388-2457(98)00043-1
+
+Nunez, P. L., & Srinivasan, R. (2006). Electric Fields of the Brain: The
+  Neurophysics of EEG (2nd ed.). Oxford University Press.
+
+Yao, D. (2001). A method to standardize a reference of scalp EEG recordings to
+  a point at infinity. Physiological Measurement, 22(4), 693–711.
+  https://doi.org/10.1088/0967-3334/22/4/305

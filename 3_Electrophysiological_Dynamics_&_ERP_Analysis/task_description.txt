@@ -1,0 +1,68 @@
+Data collection took place at the Meditation Research Institute (MRI) in Rishikesh, India under the supervision of Arnaud Delorme, PhD. The project was approved by the local MRI Indian ethical committee and the ethical committee of the University of California San Diego (IRB project # 090731).
+
+Participants sat either on a blanket on the floor or on a chair for both experimental periods depending on their personal preference. They were asked to keep their eyes closed and all lighting in the room was turned off during data collection. An intercom allowed communication between the experimental and the recording room.
+
+Participants performed three identical sessions of 13 minutes each. 750 stimuli were presented with 70% of them being standard (500 Hz pure tone lasting 60 milliseconds), 15% being oddball (1000 Hz pure tone lasting 60 ms) and 15% being distractors (1000 Hz white noise lasting 60 ms). All sounds took 5 milliseconds to ramp up and 5 milliseconds to ramp down. Sounds were presented at a rate of 1 per second with a random gaussian jitter of standard deviation 25 ms. Participants were instructed to respond to oddball by pressing a key on a keypad that was resting on their lap.
+
+Data collection was performed with an Active Two Biosemi system (Biosemi, Inc.) at 1024Hz and 10-20 standard caps from the same company tailored to the subject’s head size. Stimuli were presented with the psychophysics MATLAB toolbox. The code for presenting stimuli and all the data is made available (see code and stimuli folder). Before making the data public, the raw data were resampled at 256 Hz using the standalone tool provided by Biosemi, then converted to the EEGLAB data format. No further data manipulation was performed.
+
+{
+  "duration": {
+    "LongName": "Event duration",
+    "Description": "Duration of the event (measured from onset) in seconds",
+    "Units": "second"
+  },
+  "sample": {
+    "LongName": "Sample",
+    "Description": "Onset of the event according to the sampling scheme of the recorded modality (i.e., referring to the raw data file that the events.tsv file accompanies)."
+  },
+  "trial_type": {
+    "LongName": "Event categorization",
+    "Description": "Type of event",
+    "Levels": {
+      "stimulus": "Auditory stimulus",
+      "responses": "Behavioral response"
+    }
+  },
+  "response_time": {
+    "LongName": "Response time",
+    "Description": "Latency of button press after auditory stimulus",
+    "Units": "second",
+    "Levels": {
+      "Units": "millisecond"
+    }
+  },
+  "stim_file": {
+    "LongName": "Stimulus file location",
+    "Description": "Represents the location of the stimulus file (image, video, sound etc.) presented at the given onset time. They should be stored in the \/stimuli folder (under the root folder of the dataset; with optional subfolders). The values under the stim_file column correspond to a path relative to \"\/stimuli\"."
+  },
+  "onset": {
+    "Description": "Event onset",
+    "Units": "second"
+  },
+  "value": {
+    "Description": "Value of event",
+    "Levels": {
+      "response": "Response of the subject",
+      "standard": "Standard at 500 hz for 60 ms",
+      "ignore": "Ignore - not a real event",
+      "oddball": "Oddball at 1000 hz for 60 ms",
+      "noise": "White noise for 60 ms",
+      "condition_5": "Ignore, computer glitch",
+      "noise_with_reponse": "White noise for 60 ms, followed by response (incorrect distractor)",
+      "oddball_with_reponse": "Oddball at 1000 hz for 60 ms, followed by response (correct target)",
+      "standard_with_reponse": "Standard at 500 hz for 60 ms, followed by response (incorrect)"
+    },
+	"HED": {
+      "standard": "Auditory-presentation, Sensory-event, Pitch/500 Hz, Correct, Non-target, (Not-equal-to, Go-signal), Expected",
+      "oddball_with_reponse": "Auditory-presentation, Sensory-event, Pitch/1000 Hz, Correct, Target, Oddball, Expected, Go-signal, Participant-response",
+      "condition 5": "Description/Computer Glitch",
+      "standard_with_reponse": "Auditory-presentation, Sensory-event, Pitch/500 Hz, Wrong, Non-target, (Not-equal-to, Go-signal), Participant-response, Expected",
+      "noise_with_reponse": "Auditory-presentation, Sensory-event, Wrong, Non-target, Signal-noise, Unexpected, (Not-equal-to, Go-signal), Distractor, Participant-response",
+      "response": "Participant-response, (Keyboard-key, Press), Agent-action",
+      "noise": "Auditory-presentation, Sensory-event, Correct, Non-target, Signal-noise, Unexpected, (Not-equal-to, Go-signal), Distractor",
+      "ignore": "Description/Event Irrelevant for Experiment",
+      "oddball": "Auditory-presentation, Sensory-event, Pitch/1000 Hz, Wrong, Target, Oddball, Expected, Go-signal"
+    }
+  }
+}
