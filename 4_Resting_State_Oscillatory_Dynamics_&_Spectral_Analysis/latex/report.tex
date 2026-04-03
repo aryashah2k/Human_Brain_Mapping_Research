@@ -1,0 +1,218 @@
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{natbib}
+\usepackage{dblfloatfix}
+\usepackage{placeins}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+\graphicspath{{figures/}}
+
+\title{\textbf{Resting-State Oscillatory Dynamics and Spectral Analysis in Infant EEG}\\[0.3em]
+{\small \textit{Human Brain Mapping: Assignment 4 }}}
+\author{Arya Shah (25290002)}
+\date{}
+
+\begin{document}
+\maketitle
+
+% =========================================================================
+\section{Introduction}
+% =========================================================================
+
+Resting-state electroencephalography (EEG) captures spontaneous cortical activity in the absence of any task. In infants, this activity is dominated by slow oscillations and carries information about the maturation of cortical networks. Unlike event-related potentials, resting-state analysis requires long, continuous clean segments for reliable spectral estimation.
+
+This project analyzes resting-state EEG from a 5-month-old infant (sub-NORB00001) drawn from the OpenNeuro dataset ds004577 \citep{schaworonkow2024}, which contains recordings from 103 healthy infants in the first year of life.
+
+\subsection{Research Question}
+
+\textit{How is resting-state oscillatory power distributed across canonical EEG frequency bands in a 5-month-old infant, and does this spatial distribution differ between frontal and posterior brain regions?}
+
+\subsection{Hypotheses}
+Our \textbf{Null hypothesis ($H_0$)} states that there is no significant difference in delta-band (1--4~Hz) power between frontal and posterior electrode regions during eyes-closed resting state. While, our \textbf{Alternative hypothesis ($H_1$)} states Delta-band power differs significantly between frontal and posterior electrode regions, reflecting a non-uniform spatial distribution of slow oscillatory activity in the developing cortex.
+
+% =========================================================================
+\section{Methodology}
+% =========================================================================
+
+\subsection{Dataset}
+
+The data were obtained from the OpenNeuro repository (ds004577, v1.0.1). The recording for sub-NORB00001 (session 1, age 0.41 years, approximately 5 months) was acquired using 21 Ag/AgCl cup electrodes in the 10--10 system at a sampling rate of 200~Hz with a common reference. The recording lasted approximately 718 seconds in a continuous, resting-state paradigm.
+
+\subsection{Preprocessing}
+
+\subsubsection{Channel Setup}
+
+Seven channels were renamed to standard 10--10 nomenclature (T3$\to$T7, T4$\to$T8, T5$\to$P7, T6$\to$P8, FZ$\to$Fz, CZ$\to$Cz, PZ$\to$Pz), and a standard \texttt{standard\_1020} montage was applied. Two channels (Pg1, Pg2) lacked electrode coordinates and were dropped, leaving 19 channels. The recording was then cropped to the eyes-closed segment (0--644.1~s) using the events file.
+
+\subsubsection{Bad Channel Detection}
+
+We screened the remaining channels using a variance-based approach (flagging channels with variance exceeding 5$\times$ the median or below 0.1$\times$ the median) and a bridging detection criterion (inter-channel correlation $r > 0.99$). No additional bad channels were detected, which indicates good data quality.
+
+\subsubsection{Filtering}
+
+A 1--30~Hz FIR bandpass filter (Hamming window, firwin design, 53~dB stopband attenuation) was applied to the continuous data. The high-pass was set to 1~Hz to suppress slow drifts beyond what the hardware filter (0.5~Hz) already removed. A notch filter was not needed because the power line frequency (60~Hz) falls well above the 30~Hz low-pass cutoff and is therefore absent from the data.
+
+\subsubsection{Artifact Correction and Re-referencing}
+
+Independent Component Analysis (ICA) was performed using the FastICA algorithm with 15 components (capturing 98.31\% of variance). One component (IC0) was identified as an ocular artifact based on its correlation with frontal channels Fp1/Fp2 ($r = 0.596$) and was removed. The data were then re-referenced to the average reference.
+
+Figure~\ref{fig:psd_comparison} shows the PSD before and after preprocessing, and Figure~\ref{fig:timeseries} shows a 10-second time-series comparison.
+
+\begin{figure*}[!tp]
+    \centering
+    \includegraphics[width=\textwidth]{fig1_psd_comparison.pdf}
+    \caption{Power spectral density comparison between raw and preprocessed data. The overall spectral shape is preserved. The preprocessed data shows reduced inter-channel variance at low frequencies, consistent with the removal of the ocular artifact component.}
+    \label{fig:psd_comparison}
+\end{figure*}
+
+\begin{figure*}[!bp]
+    \centering
+    \includegraphics[width=\textwidth]{fig2_timeseries_comparison.pdf}
+    \caption{Time-series comparison (10--20~s segment) for selected channels. After preprocessing, the amplitude at Fp1 is notably reduced (ocular artifact removal) and the traces are more uniform across channels.}
+    \label{fig:timeseries}
+\end{figure*}
+
+% =========================================================================
+\section{Spectral Analysis}
+% =========================================================================
+
+\subsection{Power Spectral Density (Welch's Method)}
+
+The PSD was computed using Welch's method (2-second windows, 50\% overlap) across all 19 channels for the frequency range 1--30~Hz. Regional averages were computed for five groups: Frontal (Fp1, Fp2, F3, F4, F7, F8, Fz), Central (C3, C4, Cz), Parietal (P3, P4, Pz), Occipital (O1, O2), and Temporal (T7, T8, P7, P8).
+
+\begin{figure*}[!tp]
+    \centering
+    \includegraphics[width=\textwidth]{fig3_psd_welch.pdf}
+    \caption{Left: PSD for all channels with frequency bands shaded (delta 1--4~Hz, theta 4--8~Hz, alpha 8--13~Hz, beta 13--30~Hz). Right: Regional averages showing that central electrodes have the highest power across all bands, while occipital electrodes show comparatively lower power.}
+    \label{fig:psd_welch}
+\end{figure*}
+
+As shown in Figure~\ref{fig:psd_welch}, the spectrum is dominated by delta-band power with a characteristic 1/f decay. A spectral peak near 4--5~Hz is visible across most channels. This peak corresponds to the infant theta rhythm, widely regarded as the developmental precursor to the adult posterior alpha rhythm \citep{hill2024}. The central region exhibits the highest power in all bands, which is consistent with the known vertex-dominant topography of infant EEG.
+
+\subsection{Time-Frequency Representation}
+
+A time-frequency representation (TFR) was computed using Morlet wavelets (frequencies 1--30~Hz in 0.5~Hz steps; adaptive cycle count $n = f/2$). The data were segmented into 322 non-overlapping 2-second epochs.
+
+\begin{figure*}[!tp]
+    \centering
+    \includegraphics[width=\textwidth]{fig4_tfr_morlet.pdf}
+    \caption{Epoch-averaged TFR at Cz (left) and O1 (right). Both channels show strong low-frequency power (delta/theta, red) and weak high-frequency power (beta, blue). The uniform distribution across time within each epoch confirms stationarity at the 2-second scale.}
+    \label{fig:tfr}
+\end{figure*}
+
+\begin{figure*}[!bp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig4b_spectrogram_Cz.png}
+    \caption{Full-recording spectrogram at Cz (concatenated 2-second epochs). Low-frequency power is present consistently across the full 644 seconds, confirming that the infant maintained a stable resting state. Occasional vertical striations reflect brief transient artifacts common in infant recordings.}
+    \label{fig:spectrogram}
+\end{figure*}
+
+Figure~\ref{fig:tfr} shows the epoch-averaged TFR for Cz and O1. The power is concentrated below 8~Hz in both channels, which is consistent with the PSD results. Figure~\ref{fig:spectrogram} shows that this spectral structure is stable across the entire recording, with no evidence of state transitions (e.g., wakefulness to sleep).
+
+\subsection{Topographic Mapping}
+
+Figure~\ref{fig:topomap} shows the spatial distribution of absolute power for each frequency band. Delta power is strongest over central and posterior regions. Theta power is distributed broadly with a central and frontocentral maximum. Alpha and beta power are both weak and centrally dominant, consistent with the immature state of these generators at 5 months of age. Notably, there is no posterior alpha maximum, which is a hallmark of adult EEG that has not yet emerged at this developmental stage.
+
+\begin{figure*}[!tp]
+    \centering
+    \includegraphics[width=\textwidth]{fig5_topomap_bandpower.pdf}
+    \caption{Topographic maps of absolute power in delta (1--4~Hz), theta (4--8~Hz), alpha (8--13~Hz), and beta (13--30~Hz) bands. Delta is the dominant band by an order of magnitude. All bands show central/vertex dominance rather than the posterior dominance seen in adults.}
+    \label{fig:topomap}
+\end{figure*}
+
+% =========================================================================
+\section{Statistical Analysis}
+% =========================================================================
+
+To test our hypothesis, we compared mean delta-band power between frontal (Fp1, Fp2, F3, F4, F7, F8, Fz; $n = 7$) and posterior (P3, P4, Pz, O1, O2; $n = 5$) electrode groups using a Welch two-sample $t$-test. We also tested theta-band power for comparison.
+
+\subsection{Results}
+
+Table~\ref{tab:stats} summarizes the band power by region for all four frequency bands.
+
+\begin{table}[H]
+\centering
+\caption{Mean band power ($\times 10^{-12}$~V$^2$/Hz) by electrode region.}
+\label{tab:stats}
+\footnotesize
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Region} & \textbf{Delta} & \textbf{Theta} & \textbf{Alpha} & \textbf{Beta} \\
+\midrule
+Frontal   & 90.6  & 14.8  & 1.80 & 0.60 \\
+Central   & 156.3 & 23.0  & 3.01 & 1.18 \\
+Posterior & 161.4 & 17.9  & 1.88 & 0.41 \\
+Temporal  & 178.6 & 24.9  & 1.92 & 0.42 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Delta band (1--4~Hz):} Posterior electrodes ($M = 1.61 \times 10^{-10}$, $SD = 7.34 \times 10^{-11}$) showed significantly higher delta power than frontal electrodes ($M = 9.06 \times 10^{-11}$, $SD = 1.42 \times 10^{-11}$), $t(10) = -2.271$, $p = .047$, $d = -1.34$. We therefore \textbf{reject the null hypothesis}. The effect size is large, indicating a substantial difference in delta-band power between these two regions.
+
+\textbf{Theta band (4--8~Hz):} The difference between frontal ($M = 1.48 \times 10^{-11}$) and posterior ($M = 1.79 \times 10^{-11}$) theta power was not statistically significant, $t(10) = -1.588$, $p = .143$, $d = -0.97$.
+
+% =========================================================================
+\section{Aperiodic (1/f) Component Analysis}
+% =========================================================================
+
+The broadband 1/f component of the power spectrum reflects the balance between excitation and inhibition (E/I balance) in cortical circuits \citep{gao2017}. We computed the PSD at Cz on a log-log scale and fitted a linear regression (2--25~Hz) to estimate the aperiodic exponent. A literature-based typical adult PSD was generated for comparison using established spectral parameters \citep{voytek2015, donoghue2020}.
+
+\begin{figure*}[!tp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{fig6_loglog_psd_infant_vs_adult.pdf}
+    \caption{Log-log PSD at Cz for the infant (red) and a typical adult (blue). Dashed lines show linear 1/f fits. The infant shows a steeper naive fit ($\beta = 2.65$) compared to the adult ($\beta = 1.98$), though this is inflated by the strong periodic theta peak in the infant spectrum (see text).}
+    \label{fig:loglog}
+\end{figure*}
+
+The naive linear fit yielded an exponent of $\beta = 2.65$ for the infant and $\beta = 1.98$ for the adult (Figure~\ref{fig:loglog}). The infant value is inflated by the large periodic theta peak at 4--5~Hz. When proper separation methods such as specparam \citep{donoghue2020} or IRASA \citep{wen2016} are applied to remove periodic peaks before fitting, infant exponents at this age typically fall around $\beta \approx 0.5$--$1.5$ \citep{hill2024, carterleno2024}, which is flatter than the adult range of $\beta \approx 1.5$--$2.5$.
+
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig7_aperiodic_slope_schematic.pdf}
+    \caption{Schematic showing how the aperiodic exponent changes with development. A flat slope (red) reflects excitation-dominant networks in young infants. The slope steepens with age as GABAergic inhibition matures (blue).}
+    \label{fig:schematic}
+\end{figure*}
+
+Three main methods exist for separating periodic and aperiodic spectral components: (1) \textbf{specparam/FOOOF} \citep{donoghue2020}, which iteratively fits a power-law background and Gaussian peaks; (2) \textbf{IRASA} \citep{wen2016}, which uses irregular resampling to isolate scale-free activity; and (3) \textbf{simple log-log regression}, which does not separate the two and is therefore biased by oscillatory peaks, as demonstrated in our data.
+
+The flatter aperiodic slope in infants is considered a ``fingerprint'' of brain maturation because it directly indexes the E/I balance \citep{gao2017}. In the first year of life, cortical circuits are excitation-dominant due to immature GABAergic interneurons and high glutamatergic receptor expression. This state supports Hebbian plasticity and keeps critical periods open for experience-dependent learning \citep{ostlund2022}. As inhibition matures through childhood, the slope steepens and critical periods close, reflecting the stabilization of cortical networks.
+
+% =========================================================================
+\section{Discussion}
+% =========================================================================
+
+Our analysis of resting-state EEG from a 5-month-old infant revealed several findings consistent with the existing literature on early brain development.
+
+First, the power spectrum was dominated by delta-band activity (1--4~Hz), with a spectral peak near 4--5~Hz in the theta range. This peak is widely recognized as the infant precursor to the adult posterior alpha rhythm, and its frequency will gradually increase over the first years of life \citep{hill2024}.
+
+Second, the topographic analysis showed a central and vertex-dominant power distribution across all frequency bands, without the posterior alpha maximum that characterizes adult resting-state EEG. This pattern reflects the fact that posterior cortical generators are still maturing at 5 months of age.
+
+Third, the statistical comparison revealed significantly higher delta power over posterior electrodes compared to frontal electrodes ($p = .047$, $d = -1.34$). This regional difference likely reflects the relatively mature state of posterior sensory cortices (which generate strong resting delta activity) compared to frontal regions (which mature later in development). Theta power did not differ significantly between the two regions ($p = .143$), suggesting a more diffuse distribution for this band at this age.
+
+Fourth, the aperiodic analysis highlighted the importance of properly separating periodic and aperiodic spectral components. The naive slope estimate was inflated by oscillatory peaks, demonstrating why methods such as specparam or IRASA are essential for developmental EEG research. The literature consistently shows that infants have flatter aperiodic slopes compared to adults, reflecting excitation-dominant cortical networks that support the high levels of plasticity required for rapid learning in the first year of life \citep{gao2017, hill2024, carterleno2024}.
+
+\subsection{Limitations}
+
+This analysis is based on a single subject, which limits generalizability. The 30~Hz low-pass hardware filter restricts the frequency range available for aperiodic slope estimation. Future work should apply specparam or IRASA to obtain unbiased aperiodic exponents and extend the analysis to the full 103-subject cohort.
+
+% =========================================================================
+\section{Conclusion}
+% =========================================================================
+
+This project demonstrated a complete pipeline for resting-state EEG analysis in infant data, from preprocessing through spectral estimation, topographic mapping, and aperiodic component analysis. The 5-month-old infant showed delta-dominant spectral activity, a vertex-centered topography, and spectral features consistent with normal early brain development. The significant frontal-posterior asymmetry in delta power and the flat aperiodic slope both provide markers of the immature, excitation-dominant cortical state that characterizes the first year of life.
+
+\FloatBarrier
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}
